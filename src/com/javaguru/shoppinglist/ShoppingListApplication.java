@@ -14,7 +14,7 @@ class ShoppingListApplication {
             Scanner scanner = new Scanner(System.in);
             try {
                 System.out.println("1. Create product");
-                System.out.println("2. Find product by id");
+                System.out.println("2. Find product by id ");
                 System.out.println("3. Exit");
                 System.out.println("4. Delete product");
                 System.out.println("5. Change product");
