@@ -47,8 +47,7 @@ class ShoppingListApplication {
                             if (productRepository.containsKey(idToDelete)) {
                                 idToDelete = productIdSequence;
                             } else {
-                                System.out.println("Wrong key, please try again");
-                                break;
+                                throw new UserValidationException("Wrong product id, its not possible to delete product");
                             }
                         }
                         productRepository.remove(idToDelete);
@@ -62,8 +61,7 @@ class ShoppingListApplication {
                             if (productRepository.containsKey(updateProduct)) {
                                 updateProduct = productIdSequence;
                             } else {
-                                System.out.println("Wrong key, please try again");
-                                break;
+                                throw new UserValidationException("Wrong product id, its not possible to update product");
                             }
                         }
                         productRepository.put(productIdSequence, productForReplace);
