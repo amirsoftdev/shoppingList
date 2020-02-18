@@ -69,7 +69,7 @@ public class Product {
                 ", category = " + category +
                 ", description = " + description +
                 ", discount = " + discount +
-                '}';
+                '}' ;
     }
 
     @Override

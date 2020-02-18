@@ -80,11 +80,12 @@ public class ConsoleUI {
     }
 
     private void updateProduct() {
+        Product product = new Product();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter product id for update : ");
         Long id = scanner.nextLong();
-        Product product = productService.updateProduct(id);
-        System.out.println("Result : " + id);
+        Product newProduct = productService.updateProduct(id, product);
+        System.out.println("Result : " + id + product);
     }
 
 }

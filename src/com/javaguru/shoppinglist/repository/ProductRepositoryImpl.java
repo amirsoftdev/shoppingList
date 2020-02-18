@@ -1,7 +1,6 @@
 package com.javaguru.shoppinglist.repository;
 
 import com.javaguru.shoppinglist.domain.Product;
-import com.javaguru.shoppinglist.exeptions.ItemNotFoundException;
 import com.javaguru.shoppinglist.exeptions.UserValidationException;
 import com.javaguru.shoppinglist.service.ProductRepository;
 
@@ -25,26 +24,13 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product findProduct(Long productId) {
-        if (productRepository.containsKey(productId)) {
-            return productRepository.get(productId);
-
-        } else {
-            throw new ItemNotFoundException("Product with + " + productId + " ID not found");
-        }
+        return productRepository.get(productId);
 
     }
 
-
     @Override
 
-    public Product updateProduct(Long updateProductId) {
-        Product product = new Product();
-        if (productRepository.containsKey(updateProductId)) {
-            updateProductId = productIdSequence;
-        } else {
-            throw new UserValidationException("Wrong product id, its not possible to update your product");
-        }
-
+    public Product updateProduct(Long updateProductId, Product product) {
         productRepository.put(productIdSequence, product);
         return product;
 
@@ -52,20 +38,12 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Boolean deleteProduct(Long idToDelete) {
-        if (productRepository.containsKey(idToDelete)) {
-            idToDelete = productIdSequence;
-            productRepository.remove(idToDelete);
-            return true;
-        } else {
-            throw new UserValidationException("Wrong product id, its not possible to delete product");
-        }
-
-
+        productRepository.remove(idToDelete);
+        return true;
     }
 
     @Override
     public Product addProduct(Product product) {
-        checkNotNull(product);
         product.setId(productIdSequence);
         productRepository.put(productIdSequence, product);
         productIdSequence++;
