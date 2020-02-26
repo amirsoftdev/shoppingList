@@ -6,25 +6,5 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
-
-    <bean id="productRepositoryImplBean"
-          class="com.javaguru.shoppinglist.repository.ProductRepositoryImpl">
-    </bean>
-    <bean id="productValidationServiceBean"
-          class="com.javaguru.shoppinglist.service.ProductValidationService">
-        <constructor-arg ref = "productRepositoryImplBean"/>
-    </bean>
-
-    <bean id="productServiceBean"
-          class="com.javaguru.shoppinglist.service.ProductService">
-        <constructor-arg index="0" ref="productRepositoryImplBean"/>
-        <constructor-arg index="1" ref="productValidationServiceBean"/>
-    </bean>
-
-    <bean id="consoleUIBean"
-          class="com.javaguru.shoppinglist.console.ConsoleUI">
-        <constructor-arg ref = "productServiceBean"/>
-    </bean>
-
-
+    <context:component-scan base-package="com.javaguru.shoppinglist"/>
 </beans>

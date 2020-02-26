@@ -5,6 +5,7 @@ public enum ProductCategory {
     MEAT,
     FRUITS,
     VEGETABLES,
-    BREADS
+    BREADS,
+    CANDY
 
 }

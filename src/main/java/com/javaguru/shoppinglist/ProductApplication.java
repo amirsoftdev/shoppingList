@@ -12,10 +12,10 @@ public class ProductApplication {
             "applicationContext.xml"
         );
 
-        ProductRepository repository = context.getBean("productRepositoryImplBean", ProductRepository.class);
-        ProductService productService = context.getBean("productServiceBean",ProductService.class);
-        ProductValidationService validationService = context.getBean("productValidationServiceBean", ProductValidationService.class);
-        ConsoleUI consoleUI = context.getBean("consoleUIBean", ConsoleUI.class);
+        ProductRepository repository = context.getBean("productRepositoryImpl", ProductRepository.class);
+        ProductService productService = context.getBean("productService",ProductService.class);
+        ProductValidationService validationService = context.getBean("productValidationService", ProductValidationService.class);
+        ConsoleUI consoleUI = context.getBean("consoleUI", ConsoleUI.class);
 
     }
 }

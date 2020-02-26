@@ -12,7 +12,7 @@ public interface ProductRepository {
 
     Boolean deleteProduct(Long idToDelete);
 
-    Product addProduct(Product product);
+    Product addProduct(Product product) ;
 
 
 }

@@ -2,15 +2,19 @@ package com.javaguru.shoppinglist.service;
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.exeptions.IncorrectlyEnteredDataException;
 import com.javaguru.shoppinglist.repository.ProductRepositoryImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
 public class ProductValidationService {
 
     private final ProductRepositoryImpl repository;
 
-    public ProductValidationService(ProductRepositoryImpl repository){
-        this.repository=repository;
+    @Autowired
+    public ProductValidationService(ProductRepositoryImpl repository) {
+        this.repository = repository;
     }
 
     public void validate(Product product){

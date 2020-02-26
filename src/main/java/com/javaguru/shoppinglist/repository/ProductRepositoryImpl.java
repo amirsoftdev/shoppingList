@@ -3,10 +3,12 @@ package com.javaguru.shoppinglist.repository;
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.exeptions.UserValidationException;
 import com.javaguru.shoppinglist.service.ProductRepository;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class ProductRepositoryImpl implements ProductRepository {
 
     private Map<Long, Product> productRepository = new HashMap<>();
