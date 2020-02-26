@@ -7,11 +7,16 @@ import com.javaguru.shoppinglist.repository.ProductRepositoryImpl;
 
 public class ProductService {
 
-    private ProductRepositoryImpl repository = new ProductRepositoryImpl();
-    private ProductValidationService productValidate = new ProductValidationService();
+    private final ProductRepositoryImpl repository;
+    private final ProductValidationService validationService;
+
+    public ProductService(ProductRepositoryImpl repository, ProductValidationService validationService){
+        this.repository = repository;
+        this.validationService = validationService;
+    }
 
     public Long addProduct(Product product) {
-        productValidate.checkNotNull(product);
+        validationService.checkNotNull(product);
         Product createdProduct = repository.addProduct(product);
         return createdProduct.getId();
     }
@@ -41,6 +46,7 @@ public class ProductService {
         Product newProduct = repository.updateProduct(productId, product);
         return newProduct;
     }
+
 
 
 

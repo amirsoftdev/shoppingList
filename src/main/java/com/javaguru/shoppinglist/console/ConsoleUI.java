@@ -9,7 +9,11 @@ import java.util.Scanner;
 
 public class ConsoleUI {
 
-    private ProductService productService = new ProductService();
+    private final ProductService productService;
+
+    public ConsoleUI(ProductService productService){
+        this.productService = productService;
+    }
 
     public void execute() {
         while (true) {
@@ -35,6 +39,7 @@ public class ConsoleUI {
                 }
             } catch (Exception e) {
                 System.out.println("Error! Please try again.");
+                e.printStackTrace();
             }
         }
     }

@@ -1,10 +1,17 @@
 package com.javaguru.shoppinglist.service;
-
 import com.javaguru.shoppinglist.domain.Product;
 import com.javaguru.shoppinglist.exeptions.IncorrectlyEnteredDataException;
+import com.javaguru.shoppinglist.repository.ProductRepositoryImpl;
+
 import java.math.BigDecimal;
 
 public class ProductValidationService {
+
+    private final ProductRepositoryImpl repository;
+
+    public ProductValidationService(ProductRepositoryImpl repository){
+        this.repository=repository;
+    }
 
     public void validate(Product product){
         checkNotNull(product);
@@ -14,7 +21,7 @@ public class ProductValidationService {
     }
 
 
-    void checkNotNull(Product product) {
+     public void checkNotNull(Product product) {
         if (product == null) {
             throw new IncorrectlyEnteredDataException("Product cant be null, please try again");
         }

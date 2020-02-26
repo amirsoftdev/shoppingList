@@ -16,7 +16,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     public boolean isProductUnique(String productName) {
         for (Product product : productRepository.values()) {
             if (productName.equals(product.getName())) {
-                throw new UserValidationException("This product has already crated before");
+                throw new UserValidationException("This product has already created before");
             }
         }
         return true;
@@ -49,5 +49,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         productIdSequence++;
         return product;
     }
+
+
 }
 
